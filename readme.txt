@@ -1,4 +1,3 @@
-seks!
 GenerateAll is distributed with GNU General Public License.
 For more details about license,visit https://gnu.org/licenses/
 --------------------------------------------------------------
