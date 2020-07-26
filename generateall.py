@@ -42,8 +42,8 @@ while True:
         except:
             print("#this input must be integer.#")
             continue
-        if i2 > 100:
-            print("why do you need this..just..\ntry again.")
+        if i2  > 1000:
+            print("-----\nwhy did you do this..just..\n-----\ni didn't understand\n-----\ntry something less.\ndon't be a paranoid.")
             continue
         newpassword = ""
         while i2 > 0:
@@ -60,8 +60,8 @@ while True:
         except:
             print("#this input must be integer.#")
             continue
-        if i2 > 50:
-            print("this is too much for me..\ntry again.")
+        if i2 > 1000:
+            print("-----\nwhy did you do this..just..\n-----\ni didn't understand\n-----\ntry something less.\ndon't be a paranoid.")
             continue
         newpassword = ""
         while i2 > 0:
@@ -77,8 +77,8 @@ while True:
         except:
             print("#this input must be integer.#")
             continue
-        if i2 > 50:
-            print("this is too much for me..\ntry again.")
+        if i2 > 1000:
+            print("-----\nwhy did you do this..just..\n-----\ni didn't understand\n-----\ntry something less.\ndon't be a paranoid.")
             continue
         newpassword = ""
         while i2 > 0:
@@ -94,8 +94,8 @@ while True:
         except:
             print("#this input must be integer.#")
             continue
-        if i2 > 50:
-            print("this is too much for me..\ntry again.")
+        if i2 > 1000:
+            print("-----\nwhy did you do this..just..\n-----\ni didn't understand\n-----\ntry something less.\ndon't be a paranoid.")
             continue
         newpassword = ""
         while i2 > 0:
@@ -112,8 +112,8 @@ while True:
         except:
             print("#this input must be integer.#")
             continue
-        if i2 > 50:
-            print("this is too much for me..\ntry again.")
+        if i2 > 1000:
+            print("-----\nwhy did you do this..just..\n-----\ni didn't understand\n-----\ntry something less.\ndon't be a paranoid.")
             continue
         newpassword = ""
         while i2 > 0:
