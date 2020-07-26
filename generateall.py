@@ -26,8 +26,8 @@ import sys
 
 
 print("""-----------------------------\nGenerateAll Copyright (C) 2020  Batuhan Gonenc.
-This program comes with ABSOLUTELY NO WARRANTY; for details
-read more about GNU General Public License.Postman is free
+GenerateAll comes with ABSOLUTELY NO WARRANTY; for details
+read more about GNU General Public License.GenerateAll is free
 software, and you are welcome to redistribute it under certain
 conditions;for see the conditions visit https://gnu.org/licenses/.
 ------------------------------------------------------------------
