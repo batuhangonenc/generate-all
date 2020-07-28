@@ -30,8 +30,7 @@ GenerateAll comes with ABSOLUTELY NO WARRANTY; for details
 read more about GNU General Public License.GenerateAll is free
 software, and you are welcome to redistribute it under certain
 conditions;for see the conditions visit https://gnu.org/licenses/.
-------------------------------------------------------------------
-""")
+------------------------------------------------------------------""")
 while True:
     i1=input('choose one(for options "o"):')
     if i1 =='o':
