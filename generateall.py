@@ -33,9 +33,11 @@ conditions;for see the conditions visit https://gnu.org/licenses/.
 ------------------------------------------------------------------
 """)
 while True:
-    print("----------\nGenerateAll\n\n1 - generate with all characters\n2 - generate except uppercase\n3 - generate except lowercase \n4 - generate with only alphabet and numbers\n5 - generate except alphabet and numbers\nq - quit\n-----------")
-    i1=input('choose one:')
-    if i1 == '1':
+    i1=input('choose one(for options "o"):')
+    if i1 =='o':
+        print("----------\n1 - generate with all characters\n2 - generate except uppercase\n3 - generate except lowercase \n4 - generate with only alphabet and numbers\n5 - generate except alphabet and numbers\nq - quit\n-----------")
+        
+    elif i1 == '1':
         i2 = input("how many characters will your password contain?")
         try:
             i2 = int(i2)
@@ -51,7 +53,7 @@ while True:
             new_char = secki1[r_int]
             newpassword = newpassword + new_char
             i2 = i2 - 1
-        print("-----\nyour new password below:\n----\n-----\n{}\n-----\nhave a nice day.".format(newpassword))
+        print("----------\nyour new password is-->{}".format(newpassword))
 
     elif i1 == '2':
         i2 = input("how many characters will your password contain?")
@@ -69,7 +71,7 @@ while True:
             new_char = secki2[r_int]
             newpassword = newpassword + new_char
             i2 = i2 - 1
-        print("-----\nyour new password below:\n{}\n-----\nhave a nice day.".format(newpassword))
+        print("----------\nyour new password is-->{}".format(newpassword))
     elif i1 == '3':
         i2 = input("how many characters will your password contain?")
         try:
@@ -86,7 +88,7 @@ while True:
             new_char = secki3[r_int]
             newpassword = newpassword + new_char
             i2 = i2 - 1
-        print("-----\nyour new password below:\n{}\n-----\nhave a nice day.".format(newpassword))
+        print("----------\nyour new password is-->{}".format(newpassword))
     elif i1 == '4':
         i2 = input("how many characters will your password contain?")
         try:
@@ -103,7 +105,7 @@ while True:
             new_char = secki4[r_int]
             newpassword = newpassword + new_char
             i2 = i2 - 1
-        print("-----\nyour new password below:\n{}\n-----\nhave a nice day.".format(newpassword))
+        print("----------\nyour new password is-->{}".format(newpassword))
 
     elif i1 == '5':
         i2 = input("how many characters will your password contain?")
@@ -121,7 +123,7 @@ while True:
             new_char = secki5[r_int]
             newpassword = newpassword + new_char
             i2 = i2 - 1
-        print("-----\nyour new password below:\n----\n-----\n{}\n-----\nhave a nice day.".format(newpassword))
+        print("----------\nyour new password is-->{}".format(newpassword))
 
     elif i1 == 'q':
         print('good bye...')
