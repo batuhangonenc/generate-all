@@ -11,7 +11,7 @@ except:
 	sys.exit()
 
 here = os.getcwd()
-new='\nalias genall="cd {} && python3 generateall.py"'.format(here)
+new='\nalias genall="python3 {}/generateall.py"'.format(here)
 
 newcontent = content + new
 
@@ -20,3 +20,4 @@ file.write(newcontent)
 file.close()
 
 print("GenerateAll installed successfully.\njust write genall in terminal to use.\nstay safe")
+os.remove("setup.py")
