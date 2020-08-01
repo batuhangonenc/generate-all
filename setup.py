@@ -1,7 +1,7 @@
 import sys
 import os
 
-username = input("GenerateAll\nenter your username in session:")
+username = input("GenerateAll Setup\nenter your username in session:")
 try:
 	file = open("/home/{}/.bashrc".format(username),"r")
 	content = file.read()
