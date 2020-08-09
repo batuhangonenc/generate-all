@@ -20,7 +20,7 @@ from random import randint as rInt
 import sys
 
 
-print("-----------\nGenerateAll")
+print("---------------------------------------------\nGenerateAll Copyright (c) 2020 Batuhan Gonenc\n---------------------------------------------")
 while True:
     i1=input('----------------------------\nchoose one(for options "o"):')
     if i1 =='o':
