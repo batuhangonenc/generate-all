@@ -1,6 +1,5 @@
-GenerateAll is distributed with GNU General Public License.
-For more details about license,visit https://gnu.org/licenses/
---------------------------------------------------------------
+GenerateAll is distributed with MIT License.
+--------------------------------------------
 there isn't dependencies needed
 -------------------------------
 recommended for python version 3.8 or higher
