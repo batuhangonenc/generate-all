@@ -10,5 +10,5 @@ Stay safe with strong and special passwords that only you know.
 just write genall in terminal.
 ---------------------------------------------------------------
 author: Batuhan Gonenc
-contact: gonencbthn@gmail.com
------------------------------
+contact: bthngnncscnd@gmail.com
+--------------------------------
