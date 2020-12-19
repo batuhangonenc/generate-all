@@ -77,7 +77,7 @@ while True:
                 break
 
             print("{}\n".format(newpassword))
-            passwords += "{}\n".format(newpassword)
+            passwords += "{}\n\n".format(newpassword)
             timesinp -= 1
 
         while 1:
@@ -155,7 +155,7 @@ while True:
                 break
 
             print("{}\n".format(newpassword))
-            passwords += "{}\n".format(newpassword)
+            passwords += "{}\n\n".format(newpassword)
             timesinp -= 1
 
         while 1:
@@ -232,7 +232,7 @@ while True:
                 break
 
             print("{}\n".format(newpassword))
-            passwords += "{}\n".format(newpassword)
+            passwords += "{}\n\n".format(newpassword)
             timesinp -= 1
 
         while 1:
@@ -309,7 +309,7 @@ while True:
                 break
 
             print("{}\n".format(newpassword))
-            passwords += "{}\n".format(newpassword)
+            passwords += "{}\n\n".format(newpassword)
             timesinp -= 1
 
         while 1:
@@ -386,7 +386,7 @@ while True:
                 break
 
             print("{}\n".format(newpassword))
-            passwords += "{}\n".format(newpassword)
+            passwords += "{}\n\n".format(newpassword)
             timesinp -= 1
 
         while 1:
