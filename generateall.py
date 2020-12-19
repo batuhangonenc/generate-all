@@ -69,6 +69,7 @@ while True:
 
 
     elif (i1 == "1"):
+        timesinp=0
         passwords = ""
         secki = secki1
         while 1:
@@ -111,6 +112,8 @@ while True:
                 newpassword = newpassword + new_char
                 i2 = i2 - 1
             if timesinp == 1:
+                print("{}\n".format(newpassword))
+                passwords += "{}\n\n".format(newpassword)
                 print("----------\nyour new passwords are above.")
                 
                 time2 = time()
@@ -252,9 +255,9 @@ while True:
                             counter -= 1
 
 
-                        stats += (comparedata+"\n\n")
+                       
                         
-                        stats += (rateresult+"\n\n")
+                        stats = (rateresult+"\n\n") + (comparedata+"\n\n") +stats
 
                         stats += "\n\nit took about {} seconds to compute".format(takes)
 
@@ -281,6 +284,7 @@ while True:
                 continue
 
     elif (i1 == "2"):
+        timesinp=0
         passwords = ""
         secki = secki2
         while 1:
@@ -323,6 +327,8 @@ while True:
                 newpassword = newpassword + new_char
                 i2 = i2 - 1
             if timesinp == 1:
+                print("{}\n".format(newpassword))
+                passwords += "{}\n\n".format(newpassword)
                 print("----------\nyour new passwords are above.")
                 
                 time2 = time()
@@ -464,10 +470,7 @@ while True:
                             counter -= 1
 
 
-                        stats += (comparedata+"\n\n")
-                        
-                        stats += (rateresult+"\n\n")
-
+                        stats = (rateresult+"\n\n") + (comparedata+"\n\n") +stats
                         stats += "\n\nit took about {} seconds to compute".format(takes)
 
                     content = "{}\n\n{} passwords above{}\n\n{}".format(passwords,backuptimesinp,stats,now)
@@ -492,6 +495,7 @@ while True:
                 print("-----\n#unvalid input#")
                 continue
     elif (i1 == "3"):
+        timesinp=0
         passwords = ""
         secki = secki3
         while 1:
@@ -534,6 +538,8 @@ while True:
                 newpassword = newpassword + new_char
                 i2 = i2 - 1
             if timesinp == 1:
+                print("{}\n".format(newpassword))
+                passwords += "{}\n\n".format(newpassword)
                 print("----------\nyour new passwords are above.")
                 
                 time2 = time()
@@ -675,9 +681,7 @@ while True:
                             counter -= 1
 
 
-                        stats += (comparedata+"\n\n")
-                        
-                        stats += (rateresult+"\n\n")
+                        stats = (rateresult+"\n\n") + (comparedata+"\n\n") +stats
 
                         stats += "\n\nit took about {} seconds to compute".format(takes)
 
@@ -703,6 +707,7 @@ while True:
                 print("-----\n#unvalid input#")
                 continue
     elif (i1 == "4"):
+        timesinp = 0
         passwords = ""
         secki = secki4
         while 1:
@@ -745,6 +750,8 @@ while True:
                 newpassword = newpassword + new_char
                 i2 = i2 - 1
             if timesinp == 1:
+                print("{}\n".format(newpassword))
+                passwords += "{}\n\n".format(newpassword)
                 print("----------\nyour new passwords are above.")
                 
                 time2 = time()
@@ -886,10 +893,7 @@ while True:
                             counter -= 1
 
 
-                        stats += (comparedata+"\n\n")
-                        
-                        stats += (rateresult+"\n\n")
-
+                        stats = (rateresult+"\n\n") + (comparedata+"\n\n") +stats
                         stats += "\n\nit took about {} seconds to compute".format(takes)
 
                     content = "{}\n\n{} passwords above{}\n\n{}".format(passwords,backuptimesinp,stats,now)
@@ -914,6 +918,7 @@ while True:
                 print("-----\n#unvalid input#")
                 continue
     elif (i1 == "5"):
+        timesinp=0
         passwords = ""
         secki = secki5
         while 1:
@@ -956,6 +961,9 @@ while True:
                 newpassword = newpassword + new_char
                 i2 = i2 - 1
             if timesinp == 1:
+                print("{}\n".format(newpassword))
+                passwords += "{}\n\n".format(newpassword)
+
                 print("----------\nyour new passwords are above.")
                 
                 time2 = time()
@@ -1065,7 +1073,8 @@ while True:
                             worstct -= 1
                         comparedata = highs + lows
 
-                        stats += (comparedata+"\n\n")
+                        
+                        stats = (comparedata+"\n\n") +stats
                         
                         stats += "\n\nit took about {} seconds to compute".format(takes)
 
