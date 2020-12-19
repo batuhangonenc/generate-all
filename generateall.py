@@ -1,3 +1,4 @@
+
 """
  The MIT License (MIT)
 
@@ -10,15 +11,44 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 """
+def ratePassword(pw):
+    basics =  ["1","2","3","4","5","6","7","8","9","0","q","w",
+"e","r","t","y","u","i","o","p","Q","W","E","R","T","Y","U","I","O","P","a","s","d","f","g","h","j","k",
+"l","A","S","D","F","G","H","J","K","L","z","x","c","v","b","n","m","Z","X","C","V","B","N","M"]
+
+    specials =  ["&","$","'","|","=","!","@","#","%","^","*","(",")","+","[","]","{","}","?","/","~",":",
+";","<",">","~"]
+
+    basicnum = 0
+    specnum = 0
+    rating = 0
+
+    for i in basics:
+        if pw.count(i) > 0:
+            basicnum += pw.count(i)
+
+    for i in specials:
+        if pw.count(i) > 0:
+            specnum += pw.count(i)
+
+
+    if specnum == 0:
+        specnum = 1
+
+    rating = basicnum / specnum
+    
+    return rating
+
+
 seckiliste = ["&","$","'","|","1","2","3","4","5","6","7","8","9","0","-","=","!","@","#","%","^","*","(",")","+","q","w",
 "e","r","t","y","u","i","o","p","[","]","Q","W","E","R","T","Y","U","I","O","P","{","}","a","s","d","f","g","h","j","k",
 "l","A","S","D","F","G","H","J","K","L","z","x","c","v","b","n","m","?","/","~","Z","X","C","V","B","N","M",":",
 ";","<",">","~"]
-secki1 = "1234567890-=!@#$%^&*()_+qwertyuiop[]QWERTYUIOP{}asdfghjkl'\ASDFGHJKL|zxcvbnm<>?/~ZXCVBNM"
-secki2 = "1234567890-=!@#$%^&*()_+qwertyuiop[]{}asdfghjkl'\|zxcvbnm<>?/~"
-secki3 = "1234567890-=!@#$%^&*()_+[]QWERTYUIOP{}'\ASDFGHJKL|<>?/~ZXCVBNM"
+secki1 = "1234567890-=!@#$%^&*()_+qwertyuiop[]QWERTYUIOP{}asdfghjkl'ASDFGHJKL|zxcvbnm<>?/~ZXCVBNM"
+secki2 = "1234567890-=!@#$%^&*()_+qwertyuiop[]{}asdfghjkl'|zxcvbnm<>?/~"
+secki3 = "1234567890-=!@#$%^&*()_+[]QWERTYUIOP{}'ASDFGHJKL|<>?/~ZXCVBNM"
 secki4 = "1234567890qwertyuiopQWERTYUIOPasdfghjklASDFGHJKLzxcvbnmZXCVBNM"
-secki5 = "-=!@#$%^&*()_+[]{}'\|<>?/~"
+secki5 = "-=!@#$%^&*()_+[]{}'|<>?/~"
 from random import randint as rInt
 from datetime import datetime
 from time import time
@@ -101,7 +131,7 @@ while True:
 
                 filename = input("write a file name:")
 
-                try:
+                if 1:
                     file = open("{}.txt".format(filename),"w")
                     
                     now = datetime.now()
@@ -116,7 +146,7 @@ while True:
                         takes = time2 - time1
 
                         
-                        raw_passwords = passwords.replace("\n","")
+                        raw_passwords = passwords.replace("\n\n","")
 
                         
                         backupsl = seckiliste.copy()
@@ -190,8 +220,42 @@ while True:
                             worstct -= 1
                         comparedata = highs + lows
 
-                        stats += comparedata
-                    
+                        #rating
+
+                        ratedict = dict()
+                        rateresult = "\n\nmost secure passwords"
+                        withoutrates = passwords.split("\n\n")
+
+                        for i in withoutrates:
+                            rate = ratePassword(i)
+
+                            ratedict.update({i:rate})
+
+                        
+                        
+                        counter = 5
+                        while (counter > 0):
+                            bestpw = ""
+                            bestrate = 10000
+
+                            for i in ratedict.keys():
+                                rate = ratedict[i]
+                                if (rate < bestrate) and (rate != 0) :
+                                    bestrate = rate
+                                    bestpw = i
+
+
+                            rateresult += "\n\n{}. {} , rating : {}".format(int(6-counter),bestpw,bestrate)
+
+                            ratedict[bestpw] = 100
+                            
+                            counter -= 1
+
+
+                        stats += (comparedata+"\n\n")
+                        
+                        stats += (rateresult+"\n\n")
+
                         stats += "\n\nit took about {} seconds to compute".format(takes)
 
                     content = "{}\n\n{} passwords above{}\n\n{}".format(passwords,backuptimesinp,stats,now)
@@ -204,7 +268,7 @@ while True:
                     print("-----\npasswords saved successfully.")
 
                     break
-                except:
+                if 1:
                     print("-----\nyou should enter a valid file name.")
                     continue
 
@@ -279,7 +343,7 @@ while True:
 
                 filename = input("write a file name:")
 
-                try:
+                if 1:
                     file = open("{}.txt".format(filename),"w")
                     
                     now = datetime.now()
@@ -294,7 +358,7 @@ while True:
                         takes = time2 - time1
 
                         
-                        raw_passwords = passwords.replace("\n","")
+                        raw_passwords = passwords.replace("\n\n","")
 
                         
                         backupsl = seckiliste.copy()
@@ -313,6 +377,7 @@ while True:
                             
                             
                         
+
                         #comparing
                         backupcomp = comparelist.copy()
                         backup2comp = comparelist.copy()
@@ -367,8 +432,42 @@ while True:
                             worstct -= 1
                         comparedata = highs + lows
 
-                        stats += comparedata
-                    
+                        #rating
+
+                        ratedict = dict()
+                        rateresult = "\n\nmost secure passwords"
+                        withoutrates = passwords.split("\n\n")
+
+                        for i in withoutrates:
+                            rate = ratePassword(i)
+
+                            ratedict.update({i:rate})
+
+                        
+                        
+                        counter = 5
+                        while (counter > 0):
+                            bestpw = ""
+                            bestrate = 10000
+
+                            for i in ratedict.keys():
+                                rate = ratedict[i]
+                                if (rate < bestrate) and (rate != 0) :
+                                    bestrate = rate
+                                    bestpw = i
+
+
+                            rateresult += "\n\n{}. {} , rating : {}".format(int(6-counter),bestpw,bestrate)
+
+                            ratedict[bestpw] = 100
+                            
+                            counter -= 1
+
+
+                        stats += (comparedata+"\n\n")
+                        
+                        stats += (rateresult+"\n\n")
+
                         stats += "\n\nit took about {} seconds to compute".format(takes)
 
                     content = "{}\n\n{} passwords above{}\n\n{}".format(passwords,backuptimesinp,stats,now)
@@ -381,7 +480,7 @@ while True:
                     print("-----\npasswords saved successfully.")
 
                     break
-                except:
+                if 1:
                     print("-----\nyou should enter a valid file name.")
                     continue
 
@@ -455,7 +554,7 @@ while True:
 
                 filename = input("write a file name:")
 
-                try:
+                if 1:
                     file = open("{}.txt".format(filename),"w")
                     
                     now = datetime.now()
@@ -470,7 +569,7 @@ while True:
                         takes = time2 - time1
 
                         
-                        raw_passwords = passwords.replace("\n","")
+                        raw_passwords = passwords.replace("\n\n","")
 
                         
                         backupsl = seckiliste.copy()
@@ -489,6 +588,7 @@ while True:
                             
                             
                         
+
                         #comparing
                         backupcomp = comparelist.copy()
                         backup2comp = comparelist.copy()
@@ -543,8 +643,42 @@ while True:
                             worstct -= 1
                         comparedata = highs + lows
 
-                        stats += comparedata
-                    
+                        #rating
+
+                        ratedict = dict()
+                        rateresult = "\n\nmost secure passwords"
+                        withoutrates = passwords.split("\n\n")
+
+                        for i in withoutrates:
+                            rate = ratePassword(i)
+
+                            ratedict.update({i:rate})
+
+                        
+                        
+                        counter = 5
+                        while (counter > 0):
+                            bestpw = ""
+                            bestrate = 10000
+
+                            for i in ratedict.keys():
+                                rate = ratedict[i]
+                                if (rate < bestrate) and (rate != 0) :
+                                    bestrate = rate
+                                    bestpw = i
+
+
+                            rateresult += "\n\n{}. {} , rating : {}".format(int(6-counter),bestpw,bestrate)
+
+                            ratedict[bestpw] = 100
+                            
+                            counter -= 1
+
+
+                        stats += (comparedata+"\n\n")
+                        
+                        stats += (rateresult+"\n\n")
+
                         stats += "\n\nit took about {} seconds to compute".format(takes)
 
                     content = "{}\n\n{} passwords above{}\n\n{}".format(passwords,backuptimesinp,stats,now)
@@ -557,7 +691,7 @@ while True:
                     print("-----\npasswords saved successfully.")
 
                     break
-                except:
+                if 1:
                     print("-----\nyou should enter a valid file name.")
                     continue
 
@@ -631,7 +765,7 @@ while True:
 
                 filename = input("write a file name:")
 
-                try:
+                if 1:
                     file = open("{}.txt".format(filename),"w")
                     
                     now = datetime.now()
@@ -646,7 +780,7 @@ while True:
                         takes = time2 - time1
 
                         
-                        raw_passwords = passwords.replace("\n","")
+                        raw_passwords = passwords.replace("\n\n","")
 
                         
                         backupsl = seckiliste.copy()
@@ -665,6 +799,7 @@ while True:
                             
                             
                         
+
                         #comparing
                         backupcomp = comparelist.copy()
                         backup2comp = comparelist.copy()
@@ -719,9 +854,43 @@ while True:
                             worstct -= 1
                         comparedata = highs + lows
 
-                        stats += comparedata
+                        #rating
 
-                        stats += "\n\nit took about {} seconds to compute".format(takes)                    
+                        ratedict = dict()
+                        rateresult = "\n\nmost secure passwords"
+                        withoutrates = passwords.split("\n\n")
+
+                        for i in withoutrates:
+                            rate = ratePassword(i)
+
+                            ratedict.update({i:rate})
+
+                        
+                        
+                        counter = 5
+                        while (counter > 0):
+                            bestpw = ""
+                            bestrate = 10000
+
+                            for i in ratedict.keys():
+                                rate = ratedict[i]
+                                if (rate < bestrate) and (rate != 0) :
+                                    bestrate = rate
+                                    bestpw = i
+
+
+                            rateresult += "\n\n{}. {} , rating : {}".format(int(6-counter),bestpw,bestrate)
+
+                            ratedict[bestpw] = 100
+                            
+                            counter -= 1
+
+
+                        stats += (comparedata+"\n\n")
+                        
+                        stats += (rateresult+"\n\n")
+
+                        stats += "\n\nit took about {} seconds to compute".format(takes)
 
                     content = "{}\n\n{} passwords above{}\n\n{}".format(passwords,backuptimesinp,stats,now)
 
@@ -733,7 +902,7 @@ while True:
                     print("-----\npasswords saved successfully.")
 
                     break
-                except:
+                if 1:
                     print("-----\nyou should enter a valid file name.")
                     continue
 
@@ -807,7 +976,7 @@ while True:
 
                 filename = input("write a file name:")
 
-                try:
+                if 1:
                     file = open("{}.txt".format(filename),"w")
                     
                     now = datetime.now()
@@ -822,7 +991,7 @@ while True:
                         takes = time2 - time1
 
                         
-                        raw_passwords = passwords.replace("\n","")
+                        raw_passwords = passwords.replace("\n\n","")
 
                         
                         backupsl = seckiliste.copy()
@@ -840,6 +1009,7 @@ while True:
                             comparelist.append("{}ara{}".format(i,microstat1))
                             
                             
+                        
 
                         #comparing
                         backupcomp = comparelist.copy()
@@ -895,11 +1065,9 @@ while True:
                             worstct -= 1
                         comparedata = highs + lows
 
-                        stats += comparedata
-
+                        stats += (comparedata+"\n\n")
+                        
                         stats += "\n\nit took about {} seconds to compute".format(takes)
-
-                    
 
                     content = "{}\n\n{} passwords above{}\n\n{}".format(passwords,backuptimesinp,stats,now)
 
@@ -911,7 +1079,7 @@ while True:
                     print("-----\npasswords saved successfully.")
 
                     break
-                except:
+                if 1:
                     print("-----\nyou should enter a valid file name.")
                     continue
 
@@ -922,7 +1090,7 @@ while True:
             else:
                 print("-----\n#unvalid input#")
                 continue
-
+  
     else:
         print("#unvalid input#")
         continue
