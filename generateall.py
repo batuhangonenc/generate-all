@@ -40,6 +40,7 @@ while True:
             try:    
                 timesinp = input("-----\nhow many passwords do you want? :")
                 timesinp = int(timesinp)
+                backuptimesinp = timesinp
                 
                 break
             except:
@@ -50,7 +51,7 @@ while True:
                 print("-----\nthis input must be a positive integer .")
                 continue
 
-        i2 = input("how many characters will your password contain?")
+        i2 = input("how many characters will your password contain? :")
         
         backupi2 = 0
         try:
@@ -91,7 +92,7 @@ while True:
                     
                     now = datetime.now()
                     now = now.strftime("%x %X")
-                    content = "{}\n\n\n{} passwords above\n\n{}".format(passwords,backupi2,now)
+                    content = "{}\n\n\n{} passwords above\n\n{}".format(passwords,backuptimesinp,now)
 
                     file.write(content)
                     file.close()
@@ -128,7 +129,7 @@ while True:
                 print("-----\nthis input must be a positive integer .")
                 continue
 
-        i2 = input("how many characters will your password contain?")
+        i2 = input("how many characters will your password contain? :")
         
         backupi2 = 0
         try:
@@ -169,7 +170,7 @@ while True:
                     
                     now = datetime.now()
                     now = now.strftime("%x %X")
-                    content = "{}\n\n\n{} passwords above\n\n{}".format(passwords,backupi2,now)
+                    content = "{}\n\n\n{} passwords above\n\n{}".format(passwords,backuptimesinp,now)
 
                     file.write(content)
                     file.close()
@@ -205,7 +206,7 @@ while True:
                 print("-----\nthis input must be a positive integer .")
                 continue
 
-        i2 = input("how many characters will your password contain?")
+        i2 = input("how many characters will your password contain? :")
         
         backupi2 = 0
         try:
@@ -246,7 +247,7 @@ while True:
                     
                     now = datetime.now()
                     now = now.strftime("%x %X")
-                    content = "{}\n\n\n{} passwords above\n\n{}".format(passwords,backupi2,now)
+                    content = "{}\n\n\n{} passwords above\n\n{}".format(passwords,backuptimesinp,now)
 
                     file.write(content)
                     file.close()
@@ -282,7 +283,7 @@ while True:
                 print("-----\nthis input must be a positive integer .")
                 continue
 
-        i2 = input("how many characters will your password contain?")
+        i2 = input("how many characters will your password contain? :") 
         
         backupi2 = 0
         try:
@@ -323,7 +324,7 @@ while True:
                     
                     now = datetime.now()
                     now = now.strftime("%x %X")
-                    content = "{}\n\n\n{} passwords above\n\n{}".format(passwords,backupi2,now)
+                    content = "{}\n\n\n{} passwords above\n\n{}".format(passwords,backuptimesinp,now)
 
                     file.write(content)
                     file.close()
@@ -359,7 +360,7 @@ while True:
                 print("-----\nthis input must be a positive integer .")
                 continue
 
-        i2 = input("how many characters will your password contain?")
+        i2 = input("how many characters will your password contain? :")
         
         backupi2 = 0
         try:
@@ -400,7 +401,7 @@ while True:
                     
                     now = datetime.now()
                     now = now.strftime("%x %X")
-                    content = "{}\n\n\n{} passwords above\n\n{}".format(passwords,backupi2,now)
+                    content = "{}\n\n\n{} passwords above\n\n{}".format(passwords,backuptimesinp,now)
 
                     file.write(content)
                     file.close()
