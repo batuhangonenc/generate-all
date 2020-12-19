@@ -1,14 +1,11 @@
-GenerateAll is distributed with MIT License.
---------------------------------------------
-there isn't dependencies needed
--------------------------------
-recommended for python version 3.8 or higher
---------------------------------------------
-Generate your own passwords.
-
-Stay safe with strong and special passwords that only you know.
-just write genall in terminal.
----------------------------------------------------------------
+Generate your own passwords with
+the power of data science.
+--------------------------------
+if you want a shortcut called 
+"genall" to execute the program
+by the terminal in linux, just
+use setup file.
+--------------------------------
 author: Batuhan Gonenc
 contact: bthngnncscnd@gmail.com
 --------------------------------
