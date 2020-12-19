@@ -17,6 +17,7 @@ secki3 = "1234567890-=!@#$%^&*()_+[]QWERTYUIOP{}'\ASDFGHJKL|<>?/~ZXCVBNM"
 secki4 = "1234567890qwertyuiopQWERTYUIOPasdfghjklASDFGHJKLzxcvbnmZXCVBNM"
 secki5 = "-=!@#$%^&*()_+[]{}'\|<>?/~"
 from random import randint as rInt
+from datetime import datetime
 import sys
 
 
@@ -25,97 +26,400 @@ while True:
     i1=input('----------------------------\nchoose one(for options "o"):')
     if i1 =='o':
         print("----------\n1 - generate with all characters\n2 - generate except uppercase\n3 - generate except lowercase \n4 - generate with only alphabet and numbers\n5 - generate except alphabet and numbers\nq - quit\n-----------")
-        
-    elif i1 == '1':
-        i2 = input("how many characters will your password contain?")
-        try:
-            i2 = int(i2)
-        except:
-            print("#this input must be integer.#")
-            continue
-        if i2  > 1000:
-            print("-----\nwhy did you do this..just..\n-----\ni didn't understand\n-----\ntry something less.\ndon't be a paranoid.")
-            continue
-        newpassword = ""
-        while i2 > 0:
-            r_int = rInt(1,len(secki1))-1
-            new_char = secki1[r_int]
-            newpassword = newpassword + new_char
-            i2 = i2 - 1
-        print("----------\nyour new password is below.\n-----\n{}".format(newpassword))
-
-    elif i1 == '2':
-        i2 = input("how many characters will your password contain?")
-        try:
-            i2 = int(i2)
-        except:
-            print("#this input must be integer.#")
-            continue
-        if i2 > 1000:
-            print("-----\nwhy did you do this..just..\n-----\ni didn't understand\n-----\ntry something less.\ndon't be a paranoid.")
-            continue
-        newpassword = ""
-        while i2 > 0:
-            r_int = rInt(1,len(secki2))-1
-            new_char = secki2[r_int]
-            newpassword = newpassword + new_char
-            i2 = i2 - 1
-        print("----------\nyour new password is below.\n-----\n{}".format(newpassword))
-    elif i1 == '3':
-        i2 = input("how many characters will your password contain?")
-        try:
-            i2 = int(i2)
-        except:
-            print("#this input must be integer.#")
-            continue
-        if i2 > 1000:
-            print("-----\nwhy did you do this..just..\n-----\ni didn't understand\n-----\ntry something less.\ndon't be a paranoid.")
-            continue
-        newpassword = ""
-        while i2 > 0:
-            r_int = rInt(1,len(secki3))-1
-            new_char = secki3[r_int]
-            newpassword = newpassword + new_char
-            i2 = i2 - 1
-        print("----------\nyour new password is below.\n-----\n{}".format(newpassword))
-    elif i1 == '4':
-        i2 = input("how many characters will your password contain?")
-        try:
-            i2 = int(i2)
-        except:
-            print("#this input must be integer.#")
-            continue
-        if i2 > 1000:
-            print("-----\nwhy did you do this..just..\n-----\ni didn't understand\n-----\ntry something less.\ndon't be a paranoid.")
-            continue
-        newpassword = ""
-        while i2 > 0:
-            r_int = rInt(1,len(secki4))-1
-            new_char = secki4[r_int]
-            newpassword = newpassword + new_char
-            i2 = i2 - 1
-        print("----------\nyour new password is below.\n-----\n{}".format(newpassword))
-
-    elif i1 == '5':
-        i2 = input("how many characters will your password contain?")
-        try:
-            i2 = int(i2)
-        except:
-            print("#this input must be integer.#")
-            continue
-        if i2 > 1000:
-            print("-----\nwhy did you do this..just..\n-----\ni didn't understand\n-----\ntry something less.\ndon't be a paranoid.")
-            continue
-        newpassword = ""
-        while i2 > 0:
-            r_int = rInt(1,len(secki5))-1
-            new_char = secki5[r_int]
-            newpassword = newpassword + new_char
-            i2 = i2 - 1
-        print("----------\nyour new password is below.\n-----\n{}".format(newpassword))
-
+    
     elif i1 == 'q':
         print('good bye...')
         sys.exit()
+
+
+
+    elif (i1 == "1"):
+        passwords = ""
+        secki = secki1
+        while 1:
+            try:    
+                timesinp = input("-----\nhow many passwords do you want? :")
+                timesinp = int(timesinp)
+                
+                break
+            except:
+                print("-----\nthis input must be a positive integer .")
+                continue
+
+            if timesinp <= 0:
+                print("-----\nthis input must be a positive integer .")
+                continue
+
+        i2 = input("how many characters will your password contain?")
+        
+        backupi2 = 0
+        try:
+            i2 = int(i2)
+            backupi2 = i2
+        except:
+            print("#this input must be integer.#")
+            continue
+
+
+        if i2  > 1000:
+            print("-----\nwhy did you do this..just..\n-----\ni didn't understand\n-----\ntry something less.\ndon't be a paranoid.")
+            continue
+        while timesinp > 0:
+            i2 = backupi2
+            newpassword = ""
+            while i2 > 0:
+                r_int = rInt(1,len(secki))-1
+                new_char = secki[r_int]
+                newpassword = newpassword + new_char
+                i2 = i2 - 1
+            if timesinp == 1:
+                print("----------\nyour new passwords are above.")
+                break
+
+            print("{}\n".format(newpassword))
+            passwords += "{}\n".format(newpassword)
+            timesinp -= 1
+
+        while 1:
+            savein = input("-----\n\ndo you want to save it ? ( y / n ) :")
+
+            if savein == "y":
+                filename = input("write a file name:")
+
+                try:
+                    file = open("{}.txt".format(filename),"w")
+                    
+                    now = datetime.now()
+                    now = now.strftime("%x %X")
+                    content = "{}\n\n\n{} passwords above\n\n{}".format(passwords,backupi2,now)
+
+                    file.write(content)
+                    file.close()
+
+                    print("-----\npasswords saved successfully.")
+
+                    break
+                except:
+                    print("-----\nyou should enter a valid file name.")
+                    continue
+
+
+            elif savein == "n":
+                break
+
+            else:
+                print("-----\n#unvalid input#")
+                continue
+
+    elif (i1 == "2"):
+        passwords = ""
+        secki = secki2
+        while 1:
+            try:    
+                timesinp = input("-----\nhow many passwords do you want? :")
+                timesinp = int(timesinp)
+                
+                break
+            except:
+                print("-----\nthis input must be a positive integer .")
+                continue
+
+            if timesinp <= 0:
+                print("-----\nthis input must be a positive integer .")
+                continue
+
+        i2 = input("how many characters will your password contain?")
+        
+        backupi2 = 0
+        try:
+            i2 = int(i2)
+            backupi2 = i2
+        except:
+            print("#this input must be integer.#")
+            continue
+
+
+        if i2  > 1000:
+            print("-----\nwhy did you do this..just..\n-----\ni didn't understand\n-----\ntry something less.\ndon't be a paranoid.")
+            continue
+        while timesinp > 0:
+            i2 = backupi2
+            newpassword = ""
+            while i2 > 0:
+                r_int = rInt(1,len(secki))-1
+                new_char = secki[r_int]
+                newpassword = newpassword + new_char
+                i2 = i2 - 1
+            if timesinp == 1:
+                print("----------\nyour new passwords are above.")
+                break
+
+            print("{}\n".format(newpassword))
+            passwords += "{}\n".format(newpassword)
+            timesinp -= 1
+
+        while 1:
+            savein = input("-----\n\ndo you want to save it ? ( y / n ) :")
+
+            if savein == "y":
+                filename = input("write a file name:")
+
+                try:
+                    file = open("{}.txt".format(filename),"w")
+                    
+                    now = datetime.now()
+                    now = now.strftime("%x %X")
+                    content = "{}\n\n\n{} passwords above\n\n{}".format(passwords,backupi2,now)
+
+                    file.write(content)
+                    file.close()
+
+                    print("-----\npasswords saved successfully.")
+
+                    break
+                except:
+                    print("-----\nyou should enter a valid file name.")
+                    continue
+
+
+            elif savein == "n":
+                break
+
+            else:
+                print("-----\n#unvalid input#")
+                continue
+    elif (i1 == "3"):
+        passwords = ""
+        secki = secki3
+        while 1:
+            try:    
+                timesinp = input("-----\nhow many passwords do you want? :")
+                timesinp = int(timesinp)
+                
+                break
+            except:
+                print("-----\nthis input must be a positive integer .")
+                continue
+
+            if timesinp <= 0:
+                print("-----\nthis input must be a positive integer .")
+                continue
+
+        i2 = input("how many characters will your password contain?")
+        
+        backupi2 = 0
+        try:
+            i2 = int(i2)
+            backupi2 = i2
+        except:
+            print("#this input must be integer.#")
+            continue
+
+
+        if i2  > 1000:
+            print("-----\nwhy did you do this..just..\n-----\ni didn't understand\n-----\ntry something less.\ndon't be a paranoid.")
+            continue
+        while timesinp > 0:
+            i2 = backupi2
+            newpassword = ""
+            while i2 > 0:
+                r_int = rInt(1,len(secki))-1
+                new_char = secki[r_int]
+                newpassword = newpassword + new_char
+                i2 = i2 - 1
+            if timesinp == 1:
+                print("----------\nyour new passwords are above.")
+                break
+
+            print("{}\n".format(newpassword))
+            passwords += "{}\n".format(newpassword)
+            timesinp -= 1
+
+        while 1:
+            savein = input("-----\n\ndo you want to save it ? ( y / n ) :")
+
+            if savein == "y":
+                filename = input("write a file name:")
+
+                try:
+                    file = open("{}.txt".format(filename),"w")
+                    
+                    now = datetime.now()
+                    now = now.strftime("%x %X")
+                    content = "{}\n\n\n{} passwords above\n\n{}".format(passwords,backupi2,now)
+
+                    file.write(content)
+                    file.close()
+
+                    print("-----\npasswords saved successfully.")
+
+                    break
+                except:
+                    print("-----\nyou should enter a valid file name.")
+                    continue
+
+
+            elif savein == "n":
+                break
+
+            else:
+                print("-----\n#unvalid input#")
+                continue
+    elif (i1 == "4"):
+        passwords = ""
+        secki = secki4
+        while 1:
+            try:    
+                timesinp = input("-----\nhow many passwords do you want? :")
+                timesinp = int(timesinp)
+                
+                break
+            except:
+                print("-----\nthis input must be a positive integer .")
+                continue
+
+            if timesinp <= 0:
+                print("-----\nthis input must be a positive integer .")
+                continue
+
+        i2 = input("how many characters will your password contain?")
+        
+        backupi2 = 0
+        try:
+            i2 = int(i2)
+            backupi2 = i2
+        except:
+            print("#this input must be integer.#")
+            continue
+
+
+        if i2  > 1000:
+            print("-----\nwhy did you do this..just..\n-----\ni didn't understand\n-----\ntry something less.\ndon't be a paranoid.")
+            continue
+        while timesinp > 0:
+            i2 = backupi2
+            newpassword = ""
+            while i2 > 0:
+                r_int = rInt(1,len(secki))-1
+                new_char = secki[r_int]
+                newpassword = newpassword + new_char
+                i2 = i2 - 1
+            if timesinp == 1:
+                print("----------\nyour new passwords are above.")
+                break
+
+            print("{}\n".format(newpassword))
+            passwords += "{}\n".format(newpassword)
+            timesinp -= 1
+
+        while 1:
+            savein = input("-----\n\ndo you want to save it ? ( y / n ) :")
+
+            if savein == "y":
+                filename = input("write a file name:")
+
+                try:
+                    file = open("{}.txt".format(filename),"w")
+                    
+                    now = datetime.now()
+                    now = now.strftime("%x %X")
+                    content = "{}\n\n\n{} passwords above\n\n{}".format(passwords,backupi2,now)
+
+                    file.write(content)
+                    file.close()
+
+                    print("-----\npasswords saved successfully.")
+
+                    break
+                except:
+                    print("-----\nyou should enter a valid file name.")
+                    continue
+
+
+            elif savein == "n":
+                break
+
+            else:
+                print("-----\n#unvalid input#")
+                continue
+    elif (i1 == "5"):
+        passwords = ""
+        secki = secki5
+        while 1:
+            try:    
+                timesinp = input("-----\nhow many passwords do you want? :")
+                timesinp = int(timesinp)
+                
+                break
+            except:
+                print("-----\nthis input must be a positive integer .")
+                continue
+
+            if timesinp <= 0:
+                print("-----\nthis input must be a positive integer .")
+                continue
+
+        i2 = input("how many characters will your password contain?")
+        
+        backupi2 = 0
+        try:
+            i2 = int(i2)
+            backupi2 = i2
+        except:
+            print("#this input must be integer.#")
+            continue
+
+
+        if i2  > 1000:
+            print("-----\nwhy did you do this..just..\n-----\ni didn't understand\n-----\ntry something less.\ndon't be a paranoid.")
+            continue
+        while timesinp > 0:
+            i2 = backupi2
+            newpassword = ""
+            while i2 > 0:
+                r_int = rInt(1,len(secki))-1
+                new_char = secki[r_int]
+                newpassword = newpassword + new_char
+                i2 = i2 - 1
+            if timesinp == 1:
+                print("----------\nyour new passwords are above.")
+                break
+
+            print("{}\n".format(newpassword))
+            passwords += "{}\n".format(newpassword)
+            timesinp -= 1
+
+        while 1:
+            savein = input("-----\n\ndo you want to save it ? ( y / n ) :")
+
+            if savein == "y":
+                filename = input("write a file name:")
+
+                try:
+                    file = open("{}.txt".format(filename),"w")
+                    
+                    now = datetime.now()
+                    now = now.strftime("%x %X")
+                    content = "{}\n\n\n{} passwords above\n\n{}".format(passwords,backupi2,now)
+
+                    file.write(content)
+                    file.close()
+
+
+                    print("-----\npasswords saved successfully.")
+                    break
+                except:
+                    print("-----\nyou should enter a valid file name.")
+                    continue
+
+
+            elif savein == "n":
+                break
+
+            else:
+                print("-----\n#unvalid input#")
+                continue
+
+  
     else:
         print("#unvalid input#")
