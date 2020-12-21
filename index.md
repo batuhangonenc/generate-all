@@ -1,32 +1,40 @@
-## Welcome to GitHub Pages
+## Welcome to GenerateAll Project Website
 
-You can use the [editor on GitHub](https://github.com/batuhangonenc/generate-all/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+GenerateAll is a password generator that uses data science to increase security.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Rating for secure passwords
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
+The rating algorithm that GenerateAll uses is below.
 ```markdown
-Syntax highlighted code block
+def ratePassword(pw):
+    basics =  ["1","2","3","4","5","6","7","8","9","0","q","w",
+"e","r","t","y","u","i","o","p","Q","W","E","R","T","Y","U","I","O","P","a","s","d","f","g","h","j","k",
+"l","A","S","D","F","G","H","J","K","L","z","x","c","v","b","n","m","Z","X","C","V","B","N","M"]
 
-# Header 1
-## Header 2
-### Header 3
+    specials =  ["&","$","'","|","=","!","@","#","%","^","*","(",")","+","[","]","{","}","?","/","~",":",
+";","<",">","~"]
 
-- Bulleted
-- List
+    basicnum = 0
+    specnum = 0
+    rating = 0
 
-1. Numbered
-2. List
+    for i in basics:
+        if pw.count(i) > 0:
+            basicnum += pw.count(i)
 
-**Bold** and _Italic_ and `Code` text
+    for i in specials:
+        if pw.count(i) > 0:
+            specnum += pw.count(i)
 
-[Link](url) and ![Image](src)
+
+    if specnum == 0:
+        specnum = 1
+
+    rating = basicnum / specnum
+    
+    return rating
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
 ### Jekyll Themes
 
