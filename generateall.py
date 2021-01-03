@@ -44,11 +44,9 @@ seckiliste = ["&","$","'","|","1","2","3","4","5","6","7","8","9","0","-","=","!
 "e","r","t","y","u","i","o","p","[","]","Q","W","E","R","T","Y","U","I","O","P","{","}","a","s","d","f","g","h","j","k",
 "l","A","S","D","F","G","H","J","K","L","z","x","c","v","b","n","m","?","/","~","Z","X","C","V","B","N","M",":",
 ";","<",">"]
-secki1 = "1234567890-=!@#$%^&*()_+qwertyuiop[]QWERTYUIOP{}asdfghjkl'ASDFGHJKL|zxcvbnm<>?/~ZXCVBNM"
-secki2 = "1234567890-=!@#$%^&*()_+qwertyuiop[]{}asdfghjkl'|zxcvbnm<>?/~"
-secki3 = "1234567890-=!@#$%^&*()_+[]QWERTYUIOP{}'ASDFGHJKL|<>?/~ZXCVBNM"
-secki4 = "1234567890qwertyuiopQWERTYUIOPasdfghjklASDFGHJKLzxcvbnmZXCVBNM"
-secki5 = "-=!@#$%^&*()_+[]{}'|<>?/~"
+
+allchars =  string.ascii_letters + string.digits + string.punctuation
+
 from random import randint as rInt
 from datetime import datetime
 from time import time
@@ -71,7 +69,7 @@ while True:
     elif (i1 == "1"):
         timesinp=0
         passwords = ""
-        secki = secki1
+        secki = allchars
         while 1:
             try:    
                 timesinp = input("-----\nhow many passwords do you want? :")
@@ -286,7 +284,7 @@ while True:
     elif (i1 == "2"):
         timesinp=0
         passwords = ""
-        secki = secki2
+        secki = allchars.replace(string.uppercase,"")
         while 1:
             try:    
                 timesinp = input("-----\nhow many passwords do you want? :")
@@ -497,7 +495,7 @@ while True:
     elif (i1 == "3"):
         timesinp=0
         passwords = ""
-        secki = secki3
+        secki = allchars.replace(string.lowercase, "")
         while 1:
             try:    
                 timesinp = input("-----\nhow many passwords do you want? :")
@@ -709,7 +707,7 @@ while True:
     elif (i1 == "4"):
         timesinp = 0
         passwords = ""
-        secki = secki4
+        secki = allchars.replace(string.punctuation, "")
         while 1:
             try:    
                 timesinp = input("-----\nhow many passwords do you want? :")
@@ -920,7 +918,7 @@ while True:
     elif (i1 == "5"):
         timesinp=0
         passwords = ""
-        secki = secki5
+        secki = string.punctuation
         while 1:
             try:    
                 timesinp = input("-----\nhow many passwords do you want? :")
