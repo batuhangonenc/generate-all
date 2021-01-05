@@ -7,5 +7,5 @@ by the terminal in linux, just
 use setup file.
 --------------------------------
 author: Batuhan Gonenc
-contact: bthngnncscnd@gmail.com
---------------------------------
+contact: gonencbthn@pm.me
+-------------------------
